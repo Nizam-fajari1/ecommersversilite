@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Nizam Fajari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#beranda" class="brand">
+        <span class="brand-mark">MN</span>
+        <span class="brand-name">Muhammad Nizam Fajari</span>
+      </a>
+
+      <nav class="primary-nav" id="primaryNav">
+        <a href="#beranda">Beranda</a>
+        <a href="#toko">Toko</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/>
+          </svg>
+          <input type="search" id="headerSearch" placeholder="Cari produk…" aria-label="Cari produk">
+        </div>
+
+        <button class="cart-btn" id="cartBtn" aria-label="Buka keranjang">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 7h10l-1 10H6L5 7z"/><path d="M8 7V5a2 2 0 014 0v2"/>
+          </svg>
+          <span class="cart-badge" id="cartBadge" data-count="0">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M3 6h14M3 10h14M3 14h14"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" id="beranda">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Koleksi Musim Gugur — 2024</span>
+        <h1>Barang yang Dibuat untuk <em>Bertahan</em>.</h1>
+        <p>Kami mengumpulkan benda-benda sederhana yang dirancang dengan teliti: pakaian, aksesori, dan objek untuk ditinggali di rumah. Setiap potongan dipilih untuk umur panjang, bukan untuk satu musim.</p>
+        <div class="hero-cta">
+          <a href="#toko" class="btn btn-primary">Jelajahi Koleksi</a>
+          <a href="#tentang" class="btn-link">Filosofi Kami</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>8</strong><span>Produk Pilihan</span></div>
+          <div><strong>4.8</strong><span>Rating Rata-rata</span></div>
+          <div><strong>100%</strong><span>Bahan Berkelanjutan</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-main">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop" alt="Model mengenakan pakaian linen dari koleksi Maison Lumen">
+        </div>
+        <div class="hero-image-accent">
+          <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&q=80&auto=format&fit=crop" alt="Detail pakaian rajut">
+        </div>
+        <div class="hero-tag">
+          <span class="hero-tag-label">Edisi Terbatas</span>
+          <span class="hero-tag-value">Linen Osaka</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CATALOG ============== -->
+  <section class="catalog" id="toko">
+    <div class="container">
+      <div class="catalog-header">
+        <div>
+          <span class="eyebrow">01 — Katalog</span>
+          <h2>Koleksi Produk</h2>
+        </div>
+        <div class="catalog-search">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/>
+          </svg>
+          <input type="search" id="catalogSearch" placeholder="Cari berdasarkan nama…" aria-label="Cari produk">
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <button class="filter-pill active" data-category="semua">Semua</button>
+        <button class="filter-pill" data-category="pakaian">Pakaian</button>
+        <button class="filter-pill" data-category="aksesori">Aksesori</button>
+        <button class="filter-pill" data-category="gaya-hidup">Gaya Hidup</button>
+        <span class="result-count" id="resultCount">8 produk</span>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="22" cy="22" r="14"/><path d="M33 33l8 8"/>
+        </svg>
+        <h3>Tidak ada produk ditemukan</h3>
+        <p>Coba ubah kata kunci atau pilih kategori lain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT STRIPE ============== -->
+  <section class="about-stripe" id="tentang">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="eyebrow">02 — Filosofi</span>
+        <h2>Dibuat perlahan, untuk digunakan lama.</h2>
+        <p>Kami bekerja sama dengan pengrajin lokal di Bandung dan Yogyakarta, menggunakan bahan alami yang menua dengan indah. Setiap produk memiliki jejak tangan — bukan kesempurnaan pabrik.</p>
+        <a href="#toko" class="btn-link">Lihat Proses Pembuatan</a>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">12</span>
+          <span class="stat-label">Pengrajin Mitra</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Tahun Garansi</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">0</span>
+          <span class="stat-label">Limbah Tekstil</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CART DRAWER ============== -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang belanja">
+    <header class="drawer-header">
+      <div>
+        <span class="eyebrow">Keranjang</span>
+        <h3>Belanja Anda</h3>
+      </div>
+      <button class="icon-btn" id="closeCart" aria-label="Tutup keranjang">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path d="M5 5l10 10M15 5L5 15"/>
+        </svg>
+      </button>
+    </header>
+    <div class="drawer-body" id="cartItems"></div>
+    <footer class="drawer-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">Rp 0</span>
+      </div>
+      <p class="shipping-note">Ongkos kirim dihitung saat pembayaran</p>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Lanjut ke Pembayaran</button>
+      <button class="btn-link btn-block" id="continueShopping">Lanjutkan Belanja</button>
+    </footer>
+  </aside>
+
+  <!-- ============== CHECKOUT MODAL ============== -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="checkoutModal" role="dialog" aria-labelledby="checkoutTitle">
+      <header class="modal-header">
+        <div>
+          <span class="eyebrow">Pembayaran</span>
+          <h3 id="checkoutTitle">Selesaikan Pesanan</h3>
+        </div>
+        <button class="icon-btn" id="closeCheckout" aria-label="Tutup checkout">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M5 5l10 10M15 5L5 15"/>
+          </svg>
+        </button>
+      </header>
+      <form class="modal-body" id="checkoutForm">
+        <div class="form-row">
+          <label for="buyerName">Nama Lengkap</label>
+          <input type="text" id="buyerName" required autocomplete="name">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row">
+            <label for="buyerEmail">Email</label>
+            <input type="email" id="buyerEmail" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="buyerPhone">Telepon</label>
+            <input type="tel" id="buyerPhone" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="buyerAddress">Alamat Pengiriman</label>
+          <textarea id="buyerAddress" rows="3" required></textarea>
+        </div>
+        <div class="form-row">
+          <label>Metode Pembayaran</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="payment" value="transfer" checked>
+              <span class="radio-label">Transfer Bank</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="payment" value="ewallet">
+              <span class="radio-label">E-Wallet</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="payment" value="cod">
+              <span class="radio-label">Bayar di Tempat</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="buyerNote">Catatan (Opsional)</label>
+          <textarea id="buyerNote" rows="2"></textarea>
+        </div>
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">Rp 0</span>
+          </div>
+          <div class="summary-row">
+            <span>Ongkos Kirim</span>
+            <span>Dihitung selanjutnya</span>
+          </div>
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <span id="summaryTotal">Rp 0</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Konfirmasi Pesanan</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============== TOAST ============== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer" id="kontak">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#beranda" class="brand">
+          <span class="brand-mark">M·L</span>
+          <span class="brand-name">Maison Lumen</span>
+        </a>
+        <p class="footer-desc">Kurasi benda-benda sederhana untuk ditinggali. Dibuat dengan perhatian, untuk bertahan lama.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+          <a href="#" aria-label="LinkedIn">LN</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#toko">Toko</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Bantuan</h4>
+        <ul>
+          <li><a href="#">Kebijakan Pengiriman</a></li>
+          <li><a href="#">Pengembalian</a></li>
+          <li><a href="#">Panduan Ukuran</a></li>
+          <li><a href="#">Pertanyaan Umum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p class="footer-news-desc">Dapatkan kabar terbaru tentang koleksi baru dan cerita pengrajin.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="email@anda.com" required>
+          <button type="submit" class="btn btn-primary">Langganan</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2024 Maison Lumen. Semua hak dilindungi.</p>
+      <p>Dibuat dengan perhatian di Jakarta.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
